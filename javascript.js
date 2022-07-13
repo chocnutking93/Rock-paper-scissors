@@ -1,53 +1,48 @@
+let playerScore = 0;
+let computerScore = 0;
+let totalGames = 0;
 
-let playerScore = 0
-let computerScore = 0
-const buttons = document.querySelectorAll('button')
 
-function computerPlay() {
-    let choice = ['rock', 'paper', 'scissors']
-    return choice[Math.floor(Math.random() * choice.length)];
-}
+function computerPlay(){
+	let choices = ['rock','paper','scissors'];
+	return choices[Math.floor(Math.random() * choices.length)]
+    }
+    
+function playGame(){
+	let choices = ['rock','paper','scissors'];
+    let rock = choices.indexOf('rock');
+    let paper = choices.indexOf('paper');
+    let scissors = choices.indexOf('scissors');
+    let text = ""; 
+    let computerChoice = computerPlay();
+    const userInput = prompt('Choose rock, paper, or scissors');
+	
+    
+  
+    if ((userInput == 'rock' && computerChoice == 'scissors') ||
+        (userInput == 'paper' && computerChoice == 'rock') ||
+        (userInput == 'scissors' && computerChoice == 'paper')){
 
-function playerSelection() {
-    let choice = ['rock', 'paper', 'scissors']
-    return choice;
-}
+        playerScore += 1
+        totalGames += 1
+        text = ("You win! You chose " + `${userInput}.` + `The computer chose ` + `${computerChoice}.`);
+    }
+    else if (userInput == computerChoice){
 
-function playRound(){
-    computerPlay()=computerSelection;
-    console.log(playerSelection)
-    console.log(computerSelection);
-    if (playerSelection === computerSelection){
-        updateScore("Tie");
+        totalGames +=1
+        text = ("It's a tie, you both chose " + `${userInput}.`)
     }
-    if((playerSelection === 'rock') && (computerSelection === 'scissors')){
-        playerScore++
-        updateScore("You win");
-    }
-    if((playerSelection === 'rock') && (computerSelection === 'paper')){
-        computerScore++
-        updateScore("You lose");
-    }
-    if((playerSelection === 'paper') && (computerSelection === 'rock')){
-        playerScore++
-        updateScore("You win");
-    }
-    if((playerSelection === 'paper') && (computerSelection === 'scissors')){
-        computerScore++
-        updateScore("You lose");
-    }
-    if((playerSelection === 'scissors') && (computerSelection === 'paper')){
-        playerScore++
-        updateScore("You win");
-    }
-    if((playerScore === 'scissors') && (computerSelection === 'rock')){
-        computerScore++
-        updateScore("You lose");
-    }
-}
+    else{
+        computerScore += 1
+        totalGames += 1
+        text = ('You lose, the computer chose ' + `${computerChoice}` + ' and you chose ' + `${userInput}.`);
+        } 
+    
 
-function updateScore(outcome){
-    document.getElementById("results").innerHTML = outcome;
-    document.getElementById("score").innerHTML = `Player: ${playerScore} || Computer: ${computerScore}`;
-    checkWin();
+    
+    document.getElementById('demo').innerHTML = text;
+    document.getElementById('playerscore').innerHTML = playerScore
+    document.getElementById('pc').innerHTML = computerScore;
+    document.getElementById('totalgames').innerHTML = totalGames
+
 }

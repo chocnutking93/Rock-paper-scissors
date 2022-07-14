@@ -15,7 +15,7 @@ function playGame(){
     let scissors = choices.indexOf('scissors');
     let text = ""; 
     let computerChoice = computerPlay();
-    const userInput = prompt('Choose rock, paper, or scissors');
+    const userInput = prompt('Choose rock, paper, or scissors').toLowerCase()
 	
     
   

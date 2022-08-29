@@ -8,5 +8,5 @@ the syntax and logic behind each button choice and function.
 I ended up discarding this button choice idea and decided to use the prompt command instead. I've come to a 
 better understanding of arrays, string, and if/else statements. -->
 
-Live preview
+Live preview<br>
 https://htmlpreview.github.io/?https://github.com/chocnutking93/Rock-paper-scissors/blob/main/index.html
